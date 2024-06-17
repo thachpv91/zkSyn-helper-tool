@@ -34,7 +34,9 @@ async function approveTokens() {
 
     // Send the approve transaction
     try {
-        const tx = await tokenContract.approve(spenderAddress, amount);
+        const tx = await tokenContract.approve(spenderAddress, amount, {
+            gasPrice: ethers.utils.parseUnits('0.026', 'gwei') // Set gas price to 0.025 Gwei
+        });
         console.log("Transaction hash:", tx.hash);
 
         // Wait for the transaction to be mined
