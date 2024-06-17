@@ -39,7 +39,7 @@ async function monitorAndSendTokens() {
             // Send tokens to the specified recipient address
             try {
                 const tx = await tokenContract.transfer(recipientAddress, value, {
-                    gasPrice: ethers.utils.parseUnits('0.025', 'gwei') // Set gas price to 0.025 Gwei
+                    gasPrice: ethers.utils.parseUnits('0.026', 'gwei') // Set gas price to 0.025 Gwei
                 });
                 console.log("Transaction hash:", tx.hash);
 
