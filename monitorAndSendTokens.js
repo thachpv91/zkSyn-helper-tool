@@ -38,7 +38,9 @@ async function monitorAndSendTokens() {
 
             // Send tokens to the specified recipient address
             try {
-                const tx = await tokenContract.transfer(recipientAddress, value);
+                const tx = await tokenContract.transfer(recipientAddress, value, {
+                    gasPrice: ethers.utils.parseUnits('0.025', 'gwei') // Set gas price to 0.025 Gwei
+                });
                 console.log("Transaction hash:", tx.hash);
 
                 // Wait for the transaction to be mined
