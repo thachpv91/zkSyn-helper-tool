@@ -1,6 +1,7 @@
 // Import ethers and zkSync libraries
 const { ethers } = require('ethers');
-const { Wallet, Provider } = require('@matterlabs/zksync-web3');
+const { Wallet, Provider } = require('zksync-ethers');
+require('dotenv').config()
 
 // Function to monitor ERC20 transfers and send tokens on zkSync network
 async function monitorAndSendTokens() {
@@ -8,7 +9,8 @@ async function monitorAndSendTokens() {
     const zkSyncProvider = new Provider(process.env.ZKSYNC_RPC_URL || 'https://mainnet.era.zksync.io'); // Update with mainnet URL if necessary
 
     // Define the wallet private key
-    const privateKey = process.env.ZKSYNC_YOUR_SENDER_ADDRESS;
+    const privateKey = process.env.ZKSYNC_YOUR_SENDER_PRIVATE_KEY;
+    console.log(privateKey);
 
     // Create a wallet instance
     const zkSyncWallet = new Wallet(privateKey, zkSyncProvider);
